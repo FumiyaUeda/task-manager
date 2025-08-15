@@ -1,4 +1,3 @@
-テスト同期
 # Task Manager
 
 Flask と SQLite を使用したシンプルかつ拡張性の高いタスク管理アプリです。  
