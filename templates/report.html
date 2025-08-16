@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>Report</title></head>
+<body>
+  <h1>Report Dashboard</h1>
+
+  <h2>Tasks by Status</h2>
+  <img src="{{ chart_url }}" alt="status chart" style="max-width:640px;width:100%;">
+
+  <h2>Summary</h2>
+  <h3>Status</h3>
+  <ul>
+    {% for k,v in by_status.items() %}<li>{{k}}: {{v}}</li>{% endfor %}
+  </ul>
+
+  <h3>Tag</h3>
+  <ul>
+    {% for k,v in by_tag.items() %}<li>{{k}}: {{v}}</li>{% endfor %}
+  </ul>
+</body>
+</html>
