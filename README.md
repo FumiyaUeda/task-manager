@@ -60,3 +60,24 @@ pip install -r requirements.txt
 # 3) 起動
 python app.py
 # ブラウザ: http://127.0.0.1:5000/
+
+---
+
+## デプロイ（AWS EC2 / Ubuntu 24.04）
+
+本アプリは AWS EC2 上で動作確認済みです。  
+セキュリティグループでポート 5000 を開放し、以下の手順で起動可能です。
+
+```bash
+# 初回
+git clone https://github.com/FumiyaUeda/task-manager.git ~/task_manager
+cd ~/task_manager
+pip3 install -r requirements.txt
+
+# 起動
+python3 app.py --host=0.0.0.0 --port=5000
+# ブラウザ: http://<EC2パブリックIP>:5000
+
+# バックグラウンド実行
+nohup python3 app.py --host=0.0.0.0 --port=5000 > logs/app.log 2>&1 &
+
