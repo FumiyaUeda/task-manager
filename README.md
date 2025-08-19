@@ -1,79 +1,43 @@
-# Task Manager
+# Task Manager 📝
 
-Flask と SQLite を使用したシンプルかつ拡張性の高いタスク管理アプリです。  
-日常業務や個人利用の効率化を目的に開発し、実務アプリとして自然なUIとわかりやすいコード構造を意識しました。
+Flask + SQLite3 で構築したシンプルな **タスク管理アプリ** です。  
+Webブラウザからタスクを登録・編集・削除し、進捗や優先度をレポート画面で確認できます。  
 
----
+## 🚀 デモ画面
 
-## 概要
-- タスクの作成、編集、削除、検索、完了管理が可能
-- 共通レイアウトテンプレートによるUI統一
-- シンプル設計で機能追加・保守が容易
+### 一覧画面
+![一覧](docs/screenshot_index.png)
 
----
-
-## 技術スタック
-**Backend**
-- Python 3.x
-- Flask
-- SQLite
-- SQLAlchemy
-
-**Frontend**
-- HTML5 / CSS3
-- Jinja2 テンプレートエンジン
-- Bootstrap（一部UI調整に使用可能）
-
-**Webサーバ**
-- Gunicorn
-- Nginx（本番環境）
+### レポート画面
+![レポート](docs/screenshot_report.png)
 
 ---
 
-## 設計の工夫
-- **SQLAlchemy ORM** による安全で効率的なDB操作
-- **テンプレート継承** で共通部分を集約し、保守性を向上
-- **モジュール分割** により可読性と拡張性を確保
-- シンプルなHTML構造でCSSカスタマイズを容易化
+## 🛠 技術スタック
+
+- **Backend** : Python 3.11 / Flask
+- **Database** : SQLite3
+- **Frontend** : HTML / Jinja2 / Bootstrap 5 / CSS カスタム
+- **Infra** : AWS EC2 (Ubuntu 24.04 LTS)
 
 ---
 
-## 今後の拡張予定
-- ユーザー認証（ログイン機能）
-- 期限・タグ管理機能
-- モバイルデバイス向けUI最適化
-- APIエンドポイントの提供
+## 📌 主な機能
+
+- ✅ タスクの新規作成・編集・削除 (CRUD)
+- 🔄 完了 / 未完了 の切替
+- 🎯 優先度設定 (High / Medium / Low)
+- ⏰ 期限日 + 時間の指定
+- 🔍 キーワード検索 (タイトル / メモ)
+- 📊 レポート画面で統計表示
+  - 優先度別タスク数
+  - 完了率のプログレスバー
 
 ---
 
-## セットアップ方法（ローカル環境 / Windows PowerShell）
+## ⚙️ セットアップ手順
 
-```powershell
-# 1) 仮想環境
-py -3 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -U pip
-
-# 2) 依存関係
-pip install -r requirements.txt
-
-# 3) 起動
-python app.py
-# ブラウザ: http://127.0.0.1:5000/
-
-デプロイ（AWS EC2 / Ubuntu 24.04）
-
-本アプリは AWS EC2 上で動作確認済みです。
-セキュリティグループでポート 5000 を開放し、以下の手順で起動可能です。
-
-# 初回
-git clone https://github.com/FumiyaUeda/task-manager.git ~/task_manager
-cd ~/task_manager
-pip3 install -r requirements.txt
-
-# 起動
-python3 app.py --host=0.0.0.0 --port=5000
-# ブラウザ: http://<EC2パブリックIP>:5000
-
-# バックグラウンド実行
-nohup python3 app.py --host=0.0.0.0 --port=5000 > logs/app.log 2>&1 &
+### 1. リポジトリを取得
+```bash
+git clone https://github.com/FumiyaUeda/task-manager.git
+cd task-manager
